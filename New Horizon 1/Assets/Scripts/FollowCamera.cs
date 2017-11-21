@@ -15,7 +15,7 @@ public class FollowCamera : MonoBehaviour
     /* PRIVATE VARIABLES */
     private Camera followCamera;
     
-	// Use this for initialization, attempt to target player by default if no target set
+	// attempt to target player by default if no target set
 	void Start ()
     {
         followCamera = GetComponent<Camera>();
@@ -34,8 +34,8 @@ public class FollowCamera : MonoBehaviour
         }
 	}
 	
-	// Update is called once per frame, camera follows target
-	void Update ()
+	// camera follows target
+	void FixedUpdate ()
     {
 		if(targetTransform)
         {
