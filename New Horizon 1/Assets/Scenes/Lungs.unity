@@ -2188,6 +2188,10 @@ Prefab:
       propertyPath: neighborDistance
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1824883753049432, guid: ca7173bd04baa5448887285b1e1325a6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7173bd04baa5448887285b1e1325a6, type: 2}
   m_IsPrefabParent: 0
@@ -4099,6 +4103,10 @@ Prefab:
         type: 2}
       propertyPath: neighborDistance
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824883753049432, guid: ca7173bd04baa5448887285b1e1325a6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7173bd04baa5448887285b1e1325a6, type: 2}
@@ -6257,6 +6265,10 @@ Prefab:
       propertyPath: neighborDistance
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1824883753049432, guid: ca7173bd04baa5448887285b1e1325a6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7173bd04baa5448887285b1e1325a6, type: 2}
   m_IsPrefabParent: 0
@@ -7686,6 +7698,10 @@ Prefab:
         type: 2}
       propertyPath: neighborDistance
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824883753049432, guid: ca7173bd04baa5448887285b1e1325a6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7173bd04baa5448887285b1e1325a6, type: 2}

@@ -12,7 +12,7 @@ public class CytoLevelController : MonoBehaviour {
     Image cytoLevelImage;
 
     //self explanatory...always between 0 and 1
-    float cytoRegenRate = .125f;
+    float cytoRegenRate = .175f;
 
 	// Use this for initialization
 	void Start () {
