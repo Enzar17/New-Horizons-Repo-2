@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - particleEffect
   - littlePig
+  - cyto
   layers:
   - Default
   - TransparentFX

@@ -35,6 +35,11 @@ public class Player : MonoBehaviour
 
     private Animator anim;
 
+    CytoLevelController cytoLevelController;
+
+    //this field controls how much Cytotoxin the player spends per frame
+    float cytoToxinCost = -.003f; //MUST BE A NEGATIVE VALUE!
+
     // temporary workaround for setting up sounds
     SoundManager sounds;
     private float shootSoundTimerMax = 0.3f;
@@ -55,6 +60,7 @@ public class Player : MonoBehaviour
         // also for use in temporary workaround for sounds
         sounds = GetComponent<SoundManager>();
 
+        cytoLevelController = GameObject.FindGameObjectWithTag("cyto").GetComponent<CytoLevelController>();
     }
 
     // Update is called once per frame
@@ -93,8 +99,8 @@ public class Player : MonoBehaviour
 
         rb2d.MovePosition(transform.position + new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0) * moveSpeed * Time.deltaTime);
 
-        //check if player if holding left mouse button, if so then fire cytotoxin beam
-        if (Input.GetMouseButton(0) && GameManager.GM.isPause() == false) { FireCytoBeam(); }
+        //check if player if holding left mouse button, if so then fire cytotoxin beam...but first check to be sure player has enough cytotoxin
+        if (Input.GetMouseButton(0) && GameManager.GM.isPause() == false && cytoLevelController.CytotoxinLevel > 0 ) { FireCytoBeam(); }
 
         // Animation Logic
         if (Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Horizontal") == 0)
@@ -194,6 +200,9 @@ public class Player : MonoBehaviour
 
         // Set beam start and end points--->Render beam to screen
         cytoBeam.GetComponent<LineRenderer>().SetPositions(beamPos);
+
+        // Reduce level of available cyto
+        cytoLevelController.CytotoxinLevel = cytoToxinCost;
 
         //if (direction == Facing.down)
         //{
