@@ -50,6 +50,9 @@ public class GameManager : MonoBehaviour {
 
         DontDestroyOnLoad(gameObject);
 
+        //keep cursor within game window
+        Cursor.lockState = CursorLockMode.Confined;
+
         
 	}
 	
