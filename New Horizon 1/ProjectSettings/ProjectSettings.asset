@@ -12,7 +12,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: New Horizons Foundation
   productName: T-Cell Hero
-  defaultCursor: {fileID: 2800000, guid: d140ee984f527a642aceea8d8b699a8f, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 9d5a4882a8ad0bb449b0685e249b395f, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.6784314, g: 0.17254902, b: 0.28235295, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -265,6 +265,12 @@ PlayerSettings:
       m_Icon: {fileID: 0}
       m_Width: 16
       m_Height: 16
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 81921fa3d7998cc48baff701304f78d2, type: 3}
+      m_Width: 128
+      m_Height: 128
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   m_BuildTargetVRSettings: []
