@@ -5533,6 +5533,7 @@ MonoBehaviour:
   healthBar: {fileID: 1435426304}
   minHealth: 0.2
   maxEmenies: 0
+  amtOfSwarms: 5
   pauseMenu: {fileID: 355782110}
   hudCanvas: {fileID: 267761108}
   quitButton: {fileID: 502974862}
@@ -9065,6 +9066,7 @@ MonoBehaviour:
   healthBar: {fileID: 1435426304}
   minHealth: 0.2
   maxEmenies: 0
+  amtOfSwarms: 0
   pauseMenu: {fileID: 355782110}
   hudCanvas: {fileID: 267761108}
   quitButton: {fileID: 502974862}
