@@ -183,6 +183,7 @@ public class Unit : MonoBehaviour {
 
             //destroy the pig!
             GameManager.GM.win();
+            GetComponentInParent<AllUnits>().CheckChild();
             Instantiate(pigParticle, gameObject.transform.position, Quaternion.identity);
             RemoveSelfFromArray(); //Remove this instance from the Units[] array
             Destroy(gameObject);

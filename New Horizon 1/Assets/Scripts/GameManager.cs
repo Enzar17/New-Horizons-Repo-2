@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     [SerializeField]
     GameObject healthBar;
     GameObject[] trees;
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour {
 
     //lose condition minimum health
     [SerializeField]
-    float minHealth=.2f;
+    float minHealth = .2f;
 
     //maximum enemies left that you are allowed to win with
     [SerializeField]
@@ -27,12 +28,15 @@ public class GameManager : MonoBehaviour {
     private Button quitButton;
     [SerializeField]
     private Button unPauseButton;
+    [SerializeField]
+    private Button quitGameButton;
 
     //singleton
     public static GameManager GM = null;
 
-	// Use this for initialization
-	void Start() {
+    // Use this for initialization
+    void Start()
+    {
         percentHealth = 0;
         trees = GameObject.FindGameObjectsWithTag("tree");
 
@@ -41,6 +45,8 @@ public class GameManager : MonoBehaviour {
         quitBtn.onClick.AddListener(goBackToMainMenu);
         Button unPauseBtn = unPauseButton.GetComponent<Button>();
         unPauseBtn.onClick.AddListener(unPause);
+        Button quitGameBtn = quitGameButton.GetComponent<Button>();
+        quitGameBtn.onClick.AddListener(quitGame);
 
         //Singleton (makes sure that there is only ever one instance of this code)
         if (GM == null)
@@ -53,18 +59,19 @@ public class GameManager : MonoBehaviour {
         //keep cursor within game window
         Cursor.lockState = CursorLockMode.Confined;
 
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         //update health bar
         percentHealth = 0;
         foreach (GameObject tree in trees)
         {
             percentHealth += tree.GetComponent<TreeScript>().Health;
         }
-        percentHealth =percentHealth/trees.GetLength(0);
+        percentHealth = percentHealth / trees.GetLength(0);
         healthBar.GetComponent<Image>().fillAmount = percentHealth;
 
         //loss condition
@@ -78,11 +85,11 @@ public class GameManager : MonoBehaviour {
         {
             pause();
         }
-	}
+    }
     public void win()
     {
         //Debug.Log(GameObject.FindGameObjectsWithTag("Pig").GetLength(0) + GameObject.FindGameObjectsWithTag("littlePig").GetLength(0));
-        if (GameObject.FindGameObjectsWithTag("Pig").GetLength(0)+ GameObject.FindGameObjectsWithTag("littlePig").GetLength(0) <= maxEmenies+1)
+        if (GameObject.FindGameObjectsWithTag("Pig").GetLength(0) + GameObject.FindGameObjectsWithTag("littlePig").GetLength(0) <= maxEmenies + 1)
         {
             Destroy(gameObject);
             SceneManager.LoadScene("WinScn");
@@ -110,13 +117,13 @@ public class GameManager : MonoBehaviour {
         if (pauseMenu.gameObject.activeInHierarchy == false)
         {
             pauseMenu.gameObject.SetActive(true);
-           // hudCanvas.gameObject.SetActive(false);
+            // hudCanvas.gameObject.SetActive(false);
             Time.timeScale = 0;
         }
         else
         {
             pauseMenu.gameObject.SetActive(false);
-         //   hudCanvas.gameObject.SetActive(true);
+            //   hudCanvas.gameObject.SetActive(true);
             Time.timeScale = 1;
         }
     }
@@ -130,7 +137,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
         Destroy(gameObject);
     }
-    
+
     /// <summary>
     /// Unpauses the game, upon push of a button.
     /// </summary>
@@ -139,5 +146,10 @@ public class GameManager : MonoBehaviour {
         pauseMenu.gameObject.SetActive(false);
         hudCanvas.gameObject.SetActive(true);
         Time.timeScale = 1;
+    }
+
+    private void quitGame()
+    {
+        Application.Quit();
     }
 }

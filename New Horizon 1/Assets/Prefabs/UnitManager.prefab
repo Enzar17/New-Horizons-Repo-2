@@ -53,7 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   units: []
   unitPrefab: {fileID: 1706553439309696, guid: 08fb422ad7e7d924aa11e8d4a7c2fcb9, type: 2}
-  numUnits: 100
+  papaPig: {fileID: 0}
+  maxUnits: 30
+  minUnits: 20
+  respawnMinUnits: 1
   range: {x: 5, y: 5, z: 5}
   seekGoal: 1
   obedient: 1
