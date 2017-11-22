@@ -12,9 +12,20 @@ public class AllUnits : MonoBehaviour {
     [SerializeField]
     GameObject unitPrefab;
 
+    // parent pig
+    public GameObject papaPig;
+
     // number of little pigs to be in the flock
     [SerializeField]
-    int numUnits = 500;
+    int maxUnits = 100;
+    [SerializeField]
+    int minUnits = 50;
+    int unitsToSubtract;
+    int numUnits;
+
+    // number of little pigs to be in the flock
+    [SerializeField]
+    int respawnMinUnits = 5;
 
     // size of the flock (in screen space)
     [SerializeField]
@@ -41,7 +52,8 @@ public class AllUnits : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        unitsToSubtract = maxUnits - minUnits;
+        numUnits = maxUnits - Mathf.RoundToInt(Random.value*unitsToSubtract);
         for (int i = 0; i < numUnits; i++)
         {
             Vector3 unitPos = new Vector3(Random.Range(-range.x, range.x),
@@ -50,6 +62,7 @@ public class AllUnits : MonoBehaviour {
 
             units.Add(Instantiate(unitPrefab, this.transform.position + unitPos, Quaternion.identity) as GameObject);
             units[i].GetComponent<Unit>().manager = this.gameObject;
+            units[i].GetComponent<Unit>().transform.parent = this.gameObject.transform;
         }
 
         // Populate trees array with all trees currently instantiated. 
@@ -67,4 +80,18 @@ public class AllUnits : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    //check how many children are left
+    public void CheckChild()
+    {
+        if (transform.childCount <= respawnMinUnits&&papaPig!=null)
+        {
+            papaPig.GetComponent<EnemyAi>().SpawnLittleOnes();
+            Destroy(this.gameObject);
+        }
+        if (transform.childCount <= 1)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

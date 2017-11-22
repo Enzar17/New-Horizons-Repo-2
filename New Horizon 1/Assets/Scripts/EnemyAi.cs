@@ -10,6 +10,9 @@ public class EnemyAi : MonoBehaviour
     [SerializeField]
     GameObject pigParticle;
 
+    //the pig's flock spawner
+    GameObject spawner;
+
     //assign sprites
     [SerializeField]
     GameObject frontSprites;
@@ -61,6 +64,7 @@ public class EnemyAi : MonoBehaviour
         }
         moveAwayTime = 0;
         anim = GetComponent<Animator>();
+        SpawnLittleOnes();
     }
 
     // Update is called once per frame
@@ -172,7 +176,7 @@ public class EnemyAi : MonoBehaviour
         {
             //destroy the pig!
             Instantiate(pigParticle, gameObject.transform.position, Quaternion.identity);
-            Instantiate(flockOpigs, gameObject.transform.position, Quaternion.identity);
+            SpawnLittleOnes();
             GameManager.GM.win();
             Destroy(gameObject);
         }
@@ -223,6 +227,11 @@ public class EnemyAi : MonoBehaviour
         pigState = State.wandering;
         direction = direction * -1;
         moveAwayTime = 2;
+    }
+    public void SpawnLittleOnes()
+    {
+        spawner = Instantiate(flockOpigs, gameObject.transform.position, Quaternion.identity);
+        spawner.GetComponent<AllUnits>().papaPig = this.gameObject;
     }
 }
 	
