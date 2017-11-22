@@ -64,7 +64,7 @@ public class EnemyAi : MonoBehaviour
         }
         moveAwayTime = 0;
         anim = GetComponent<Animator>();
-        SpawnLittleOnes();
+        //SpawnLittleOnes();
     }
 
     // Update is called once per frame
@@ -230,8 +230,8 @@ public class EnemyAi : MonoBehaviour
     }
     public void SpawnLittleOnes()
     {
-        spawner = Instantiate(flockOpigs, gameObject.transform.position, Quaternion.identity);
-        spawner.GetComponent<AllUnits>().papaPig = this.gameObject;
+            spawner = Instantiate(flockOpigs, gameObject.transform.position, Quaternion.identity);
+            spawner.GetComponent<AllUnits>().papaPig = this.gameObject;
     }
 }
 	

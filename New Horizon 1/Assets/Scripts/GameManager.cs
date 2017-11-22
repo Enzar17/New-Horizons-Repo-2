@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     int maxEmenies = 0;
 
+    [SerializeField]
+    int amtOfSwarms = 0;
+
     //pause menu
     [SerializeField]
     private Canvas pauseMenu;
@@ -31,6 +34,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Button quitGameButton;
 
+
+    GameObject flockOpigs;
     //singleton
     public static GameManager GM = null;
 
@@ -59,7 +64,7 @@ public class GameManager : MonoBehaviour
         //keep cursor within game window
         Cursor.lockState = CursorLockMode.Confined;
 
-
+        spawnLittleOnes(amtOfSwarms);
     }
 
     // Update is called once per frame
@@ -151,5 +156,14 @@ public class GameManager : MonoBehaviour
     private void quitGame()
     {
         Application.Quit();
+    }
+
+
+    private void spawnLittleOnes(int amtOfSwarms)
+    {
+        for (int i = 0; i < amtOfSwarms; i++)
+        {
+            GameObject.FindGameObjectWithTag("Pig").GetComponent<EnemyAi>().SpawnLittleOnes();
+        }
     }
 }
