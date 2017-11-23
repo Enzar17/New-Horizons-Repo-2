@@ -140,11 +140,8 @@ public class EnemyAi : MonoBehaviour
         //set previous position to current
         if (pigState != State.still)
         {
-            if (gameObject.transform.position.sqrMagnitude==prevPosition.sqrMagnitude)
-            {
-                MoveOn();
-            }
-            if(directionFacing == Facing.down)
+            prevPosition = gameObject.transform.position;
+            if (directionFacing == Facing.down)
             {
                 anim.Play("walk_front");
             }
@@ -155,7 +152,6 @@ public class EnemyAi : MonoBehaviour
             // move in that direction if not still
             //transform.Translate(new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * Time.deltaTime * speed);
             rb2d.MovePosition(transform.position + direction * speed * Time.deltaTime);
-            prevPosition = gameObject.transform.position;
         }
     }
     private void FixedUpdate()
