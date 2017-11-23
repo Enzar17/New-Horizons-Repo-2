@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour {
 
     public void HandleHelpButtonOnClick()
     {
-        SceneManager.LoadScene("Help");
+        Object.Instantiate(Resources.Load("HelpBG"));
     }
 
     //go back to menu
