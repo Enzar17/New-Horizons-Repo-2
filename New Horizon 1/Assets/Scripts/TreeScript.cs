@@ -67,7 +67,7 @@ public class TreeScript : MonoBehaviour {
         }
         if (regenTimer == 1)
         {
-            Health = .16f;
+            Health += regen;
             collActive = true;
         }
     }

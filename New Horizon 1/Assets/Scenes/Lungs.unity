@@ -5532,7 +5532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1435426304}
   minHealth: 0.2
-  maxEmenies: 0
+  maxEmenies: 4
   amtOfSwarms: 5
   pauseMenu: {fileID: 355782110}
   hudCanvas: {fileID: 267761108}
@@ -6839,7 +6839,7 @@ Prefab:
     - target: {fileID: 114799620377316122, guid: 07f63ee0308334f44a2b47f9c2ddb89f,
         type: 2}
       propertyPath: damage
-      value: 0.00011
+      value: 0.0008
       objectReference: {fileID: 0}
     - target: {fileID: 61408184879087122, guid: 07f63ee0308334f44a2b47f9c2ddb89f,
         type: 2}
@@ -9235,7 +9235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f0a2c3c4df2224c9443efeb6f7c21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canPlay: 1
 --- !u!114 &1746091365
 MonoBehaviour:
   m_ObjectHideFlags: 0

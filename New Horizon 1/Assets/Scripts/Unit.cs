@@ -35,7 +35,8 @@ public class Unit : MonoBehaviour {
     float forceMultiplier = 800;
 
     // the amount of damage that the little pigs inflict on the trees
-    float damageAmount = .00001f;
+    [SerializeField]
+    float damageAmount = .00002f;
 
     // temporary for getting sounds playing
     SoundManager sounds;
