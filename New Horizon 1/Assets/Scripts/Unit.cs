@@ -38,9 +38,6 @@ public class Unit : MonoBehaviour {
     [SerializeField]
     float damageAmount = .00002f;
 
-    // temporary for getting sounds playing
-    SoundManager sounds;
-
     // Use this for initialization
     void Start () {
 
@@ -49,9 +46,6 @@ public class Unit : MonoBehaviour {
 
         // randomly select sorting layer. This will allow a little pig to either be in front of a tree, or behind a tree
         gameObject.GetComponent<SpriteRenderer>().sortingOrder = Random.Range(3, 6);
-
-        // temp for getting sounds playing
-        sounds = GetComponent<SoundManager>();
 	}
 
     // works out the vector towards target location
@@ -178,10 +172,6 @@ public class Unit : MonoBehaviour {
         hitCounter += 1;
         if (hitCounter >= hitsBeforeDeath)
         {
-            // temp insert code to get death sounds working
-            sounds.CytotoxinSplash();
-            // end of temp code
-
             //destroy the pig!
             GameManager.GM.win();
             GetComponentInParent<AllUnits>().CheckChild();
