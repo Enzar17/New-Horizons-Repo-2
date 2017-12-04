@@ -40,6 +40,14 @@ public class Player : MonoBehaviour
     //this field controls how much Cytotoxin the player spends per frame
     float cytoToxinCost = -.003f; //MUST BE A NEGATIVE VALUE!
 
+    //sound effect declarations
+    public AudioClip shootSound0;
+    public AudioClip shootSound1;
+    public AudioClip shootSound2;
+    public AudioClip shootSound3;
+    public AudioClip shootSound4;
+    public AudioClip shootSound5;
+
     // Use this for initialization
     void Start()
     {
@@ -192,6 +200,9 @@ public class Player : MonoBehaviour
 
         // Reduce level of available cyto
         cytoLevelController.CytotoxinLevel = cytoToxinCost;
+
+        // Play sound for shooting cyto beam
+        SoundManager.Instance.RandomizeSFX(shootSound0, shootSound1, shootSound2, shootSound3, shootSound4, shootSound5);
 
         //if (direction == Facing.down)
         //{

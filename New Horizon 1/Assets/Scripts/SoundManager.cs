@@ -8,20 +8,20 @@ public class SoundManager : MonoBehaviour
     public AudioSource sfxSource;
     public AudioSource musicSource;
     
-    // T-Cell sound declaration
-    public AudioClip[] tCellShoot = new AudioClip[6];
-    public AudioClip[] tCellSteps = new AudioClip[1];
-    public AudioClip[] cytotoxinSplash = new AudioClip[1];
+    //// T-Cell sound declaration
+    //public AudioClip[] tCellShoot = new AudioClip[6];
+    //public AudioClip[] tCellSteps = new AudioClip[1];
+    //public AudioClip[] cytotoxinSplash = new AudioClip[1];
 
-    // Cancer pig sound declaration
-    public AudioClip[] cancerPigHit = new AudioClip[1];
-    public AudioClip[] cancerPigAmbient = new AudioClip[1];
+    //// Cancer pig sound declaration
+    //public AudioClip[] cancerPigHit = new AudioClip[1];
+    //public AudioClip[] cancerPigAmbient = new AudioClip[1];
 
-    // Menu sound declaration
-    public AudioClip[] menuSounds = new AudioClip[1];
+    //// Menu sound declaration
+    //public AudioClip[] menuSounds = new AudioClip[1];
 
-    // Background track declaration
-    public AudioClip[] backgroundTrack = new AudioClip[1];
+    //// Background track declaration
+    //public AudioClip[] backgroundTrack = new AudioClip[1];
 
     // Get some pitch change in repetitive sound effects
     public float lowPitchRange = 0.95f;
@@ -29,12 +29,10 @@ public class SoundManager : MonoBehaviour
 
     // Singleton
     public static SoundManager SM = null;
+    private static SoundManager instance;
 
     void Awake()
     {
-        // Audio source initialization
-        //audioS = GetComponent<AudioSource>();
-
         // Singleton check
         if (SM == null)
             SM = this;
@@ -42,10 +40,16 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+        instance = SM;
     }
 
     // Methods for calling the sounds
     #region Sound Methods
+
+    public static SoundManager Instance
+    {
+        get { return instance; }
+    }
 
     public void PlaySingle(AudioClip clip)
     {
