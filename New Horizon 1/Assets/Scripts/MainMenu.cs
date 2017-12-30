@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour {
 
     public void HandleHelpButtonOnClick()
     {
-        SceneManager.LoadScene("Help");
+        Object.Instantiate(Resources.Load("HelpBG"));
     }
 
     //go back to menu
@@ -31,6 +31,6 @@ public class MainMenu : MonoBehaviour {
     //go back to menu
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+        SceneManager.LoadScene("Lungs");
     }
 }

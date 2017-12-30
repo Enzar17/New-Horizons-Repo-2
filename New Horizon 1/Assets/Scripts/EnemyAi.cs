@@ -141,7 +141,7 @@ public class EnemyAi : MonoBehaviour
         if (pigState != State.still)
         {
             prevPosition = gameObject.transform.position;
-            if(directionFacing == Facing.down)
+            if (directionFacing == Facing.down)
             {
                 anim.Play("walk_front");
             }
@@ -213,7 +213,7 @@ public class EnemyAi : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "tree"&&collision.gameObject.GetComponent<TreeScript>().Health > .15f&&pigState==State.wandering)
+        if (collision.tag == "tree"&&collision.gameObject.GetComponent<TreeScript>().Health > .16f&&pigState==State.wandering)
         {
             treeTarget = collision.gameObject;
             pigState = State.attackTree;
